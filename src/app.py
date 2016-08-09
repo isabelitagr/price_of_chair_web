@@ -4,7 +4,7 @@ from src.common.database import Database
 
 
 app = Flask(__name__)
-app.config.from_object('config')
+app.config.from_object('src.config')
 app.secret_key = '123' # para asegurar la cookie
 # generalmente se usan 32 caracteres random de letrs y numeros un numero random de 32 bits
 #  cuando un browser pide a nuestra aplicacion una pag, Flask va a poner una cookie con un session_id.
