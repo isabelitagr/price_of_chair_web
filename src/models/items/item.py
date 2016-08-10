@@ -32,7 +32,8 @@ class Item(object):
         element = soup.find(self.tag_name, self.query)  # ('span', {'id':'priceblock_ourprice'})
 
         string_price = element.text.strip()
-        string_price = string_price[:string_price.find(",")] + string_price[string_price.find(",")+1:] # agregue esto porque no reconocia la coma de mil
+        if string_price.find(",") != -1:
+            string_price = string_price[:string_price.find(",")] + string_price[string_price.find(",")+1:] # agregue esto porque no reconocia la coma de mil
 
         pattern = re.compile("(\d+.\d+)") # \d -> set of numbers . set of numbers
 
